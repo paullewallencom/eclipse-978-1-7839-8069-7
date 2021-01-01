@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Timekeeping"
+            id="com.packtpub.e4.clock.ui">
+      </category>
+      <view
+            name="Clock View"
+            icon="icons/sample.gif"
+            category="com.packtpub.e4.clock.ui"
+            class="com.packtpub.e4.clock.ui.views.ClockView"
+            id="com.packtpub.e4.clock.ui.views.ClockView">
+      </view>
+      <view
+            category="com.packtpub.e4.clock.ui"
+            class="com.packtpub.e4.clock.ui.views.TimeZoneView"
+            icon="icons/sample.gif"
+            id="com.packtpub.e4.clock.ui.views.TimeZoneView"
+            name="Time Zone View"
+            restorable="true">
+      </view>
+      <e4view
+            category="com.packtpub.e4.clock.ui"
+            class="com.packtpub.e4.clock.ui.views.TimeZoneTreeView"
+            icon="icons/sample.gif"
+            id="com.packtpub.e4.clock.ui.views.TimeZoneTreeView"
+            name="Time Zone Tree View"
+            restorable="true">
+      </e4view>
+      <!-- e4view - converted to part descriptor in fragment.e4xmi
+            category="com.packtpub.e4.clock.ui"
+            class="com.packtpub.e4.clock.ui.views.TimeZoneTableView"
+            icon="icons/sample.gif"
+            id="com.packtpub.e4.clock.ui.views.TimeZoneTableView"
+            name="Time Zone Table View"
+            restorable="true">
+      </e4view -->
+   </extension>
+   <extension
+         id="com.packtpub.e4.clock.ui.fragment"
+         point="org.eclipse.e4.workbench.model">
+      <fragment
+            uri="fragment.e4xmi">
+      </fragment>
+   </extension>
+   <extension point="org.eclipse.core.expressions.definitions">
+      <definition id="when.hello.is.active">
+         <with variable="activeContexts">
+            <iterate operator="or">
+               <equals value="org.eclipse.ui.contexts.dialogAndWindow"/>
+            </iterate>
+         </with>
+      </definition>
+   </extension>
+   <extension point="org.eclipse.ui.preferencePages">
+      <page name="Clock"
+        class="com.packtpub.e4.clock.ui.ClockPreferencePage"
+        category="org.eclipse.ui.preferencePages.Workbench"
+        id="com.packtpub.e4.clock.ui.preference.page">
+         <keywordReference id="com.packtpub.e4.clock.ui.keywords"/>
+      </page>
+   </extension>
+   <extension point="org.eclipse.ui.keywords">
+      <keyword id="com.packtpub.e4.clock.ui.keywords"
+        label="offset timezone"/>
+  </extension>
+   <extension
+         point="org.eclipse.e4.ui.css.core.propertyHandler">
+      <handler
+            adapter="com.packtpub.e4.clock.ui.internal.css.ClockElement"
+            handler="com.packtpub.e4.clock.ui.internal.css.CSSPropertyClockHandler">
+         <property-name
+               name="clock-hand-color">
+         </property-name>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.e4.ui.css.core.elementProvider">
+      <provider
+            class="com.packtpub.e4.clock.ui.internal.css.ClockElementProvider">
+         <widget
+               class="com.packtpub.e4.clock.ui.ClockWidget">
+         </widget>
+      </provider>
+   </extension>
+</plugin>

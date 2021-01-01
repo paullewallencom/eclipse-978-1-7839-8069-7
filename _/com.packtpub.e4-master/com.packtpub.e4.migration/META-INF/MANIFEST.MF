@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Migration
+Bundle-SymbolicName: com.packtpub.e4.migration;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.packtpub.e4.migration.Activator
+Bundle-Vendor: PACKTPUB
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.e4.ui.di,
+ org.eclipse.e4.core.di.annotations,
+ org.eclipse.e4.ui.model.workbench,
+ org.eclipse.e4.ui.services
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
